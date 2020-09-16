@@ -1,14 +1,26 @@
 {
-    "name": "trunda/laravel-query-dsl",
-    "description": "Query DSL for Laravel Eloquent or Laravel DB. Translates query string to Builder",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Jakub Truneček",
-            "email": "jakub.trunecek@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {}
+  "name": "trunda/laravel-query-dsl",
+  "description": "Query DSL for Laravel Eloquent or Laravel DB. Translates query string to Builder",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jakub Truneček",
+      "email": "jakub.trunecek@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "nikic/php-parser": "^4.9@dev",
+    "nette/tokenizer": "^3.0@dev",
+    "hoa/compiler": "~3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Trunda\\QueryDSL\\": "src/"
+    }
+  },
+  "require-dev": {
+    "ircmaxell/php-yacc": "dev-master"
+  }
 }
