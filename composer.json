@@ -1,0 +1,14 @@
+{
+    "name": "trunda/laravel-query-dsl",
+    "description": "Query DSL for Laravel Eloquent or Laravel DB. Translates query string to Builder",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jakub Truneček",
+            "email": "jakub.trunecek@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
