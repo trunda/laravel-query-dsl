@@ -9,11 +9,9 @@
       "email": "jakub.trunecek@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
   "require": {
-    "nikic/php-parser": "^4.9@dev",
-    "nette/tokenizer": "^3.0@dev",
-    "hoa/compiler": "~3.0"
+    "hoa/compiler": "^3.17",
+    "illuminate/support": "8.*|7.*|6.*"
   },
   "autoload": {
     "psr-4": {
@@ -21,6 +19,5 @@
     }
   },
   "require-dev": {
-    "ircmaxell/php-yacc": "dev-master"
   }
 }

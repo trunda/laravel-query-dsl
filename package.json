@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "parser:build": "pegjs --plugin phpegjs -o src/Grammar/Parser.php --extra-options '{\"phpegjs\": {\"parserNamespace\": \"Trunda\\\\QueryDSL\\\\Grammar\"}}'  src/Grammar/dsl.pegphp"
+    "parser:build": "pegjs --plugin phpegjs -o src/Parse/Parser.php --extra-options '{\\\\\\\"phpegjs\\\\\\\": {\\\\\\\"parserNamespace\\\\\\\": \\\\\\\"Trunda\\\\\\\\\\\\\\\\QueryDSL\\\\\\\\\\\\\\\\Grammar\\\\\\\"}}'  src/Parse/dsl.pegphp"
   },
   "devDependencies": {
     "pegjs": "^0.10.0",
