@@ -3,6 +3,9 @@
   "description": "Query DSL for Laravel Eloquent or Laravel DB. Translates query string to Builder",
   "type": "library",
   "license": "MIT",
+  "scripts": {
+    "test": "php vendor/phpunit/phpunit/phpunit -c ./phpunit.xml"
+  },
   "authors": [
     {
       "name": "Jakub Truneček",
@@ -19,5 +22,6 @@
     }
   },
   "require-dev": {
+    "phpunit/phpunit": "^9.3"
   }
 }

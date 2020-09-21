@@ -15,6 +15,7 @@
 %token  COM ,
 %token  DOT \.
 %token  COL \:
+%token  AT @
 
 %token OP_ACC ->
 %token OP_GTE >=
@@ -32,7 +33,6 @@
 
 %token NOT \!|NOT|not
 
-%token SCOPE @[^\s:><="\'\(\)\.,\[\]]+
 %token TERM [^\s:><="\'\(\)\.,\[\]]+
 %token FUNCTION_NAME @[a-zA-Z][a-zA-Z0-9\._]*
 
@@ -45,26 +45,34 @@ or:
 and:
     term() (::AND:: term() #and)*
 
+
+term:
+    nested() | not() | query() | relationalNestedQuery() | relationalQuery() | scopeQuery()
+
 #not:
     ::NOT:: expression()
 
 #nested:
     ::LB:: expression() ::RB::
 
-#condition:
-    field() operator() conditional()
-    | field() (<OP_EQ>|<OP_NEQ>) equalityScalar()
-    | field() in() #inCondition
-    | field() #soloCondition
-    | <SCOPE> #scope (::LB:: arguments() ::RB::)?
-    | relationalCondition() #relationalCondition
+conditionalParts:
+    operator() conditional()
+    | (<OP_EQ>|<OP_NEQ>) equalityScalar()
+    | <OP_IN> array()
 
+#query:
+    field() conditionalParts()
+    | field() #soloQuery
 
-relationalCondition:
+#scopeQuery:
+    ::AT:: (field()|nestedField()) ::LB:: arguments()? ::RB::)?
+
+#relationalNestedQuery:
     field() (::COL:: ::LB:: expression() ::RB::)? (compareOperator() <NUMBER>)?
 
-in:
-    ::OP_IN:: array()
+#relationalQuery:
+    nestedField() conditionalParts()
+    | nestedField() #soloQuery
 
 conditional:
     conditionScalar()
@@ -125,7 +133,3 @@ obj:
 #propertyAccess:
     ::OP_ACC:: <TERM>
 
-term:
-    nested()
-    | not()
-    | condition()

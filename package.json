@@ -1,9 +1,0 @@
-{
-  "scripts": {
-    "parser:build": "pegjs --plugin phpegjs -o src/Parse/Parser.php --extra-options '{\\\\\\\"phpegjs\\\\\\\": {\\\\\\\"parserNamespace\\\\\\\": \\\\\\\"Trunda\\\\\\\\\\\\\\\\QueryDSL\\\\\\\\\\\\\\\\Grammar\\\\\\\"}}'  src/Parse/dsl.pegphp"
-  },
-  "devDependencies": {
-    "pegjs": "^0.10.0",
-    "phpegjs": "^1.0.0-beta7"
-  }
-}
